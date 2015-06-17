@@ -15,4 +15,4 @@ params = { key: 'trnsl.1.1.20150602T124834Z.3912e53ab6807e56.55924160b82c19beeee
 uri.query = URI.encode_www_form(params)
 
 response = Net::HTTP.get_response(uri)
-puts response
+puts response.body
