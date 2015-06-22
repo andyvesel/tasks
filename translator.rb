@@ -12,6 +12,9 @@ def language_detect
   @params = { key: 'trnsl.1.1.20150602T124834Z.3912e53ab6807e56.55924160b82c19beeeea211cd149031e2e2623ef',
               text: "#{@word}", 
             }
+  get_response
+  text_to_file
+  show_text
 end
 
 def translate
@@ -20,6 +23,9 @@ def translate
               text: "#{@word}",
               lang: 'ru'
             }
+  get_response
+  text_to_file
+  show_text
 end
 
 def get_response
@@ -34,10 +40,9 @@ end
 
 def show_text
   doc = Document.new(@f)
-  doc.elements.each("Translation/text") { |e| print e.text }
+  doc.elements.each('DetectedLang') { |e| puts 'Your language is: ' + e.attributes['lang'] }
+  doc.elements.each('Translation/text') { |e| print 'Translation: ' + e.text }
 end
 
+language_detect
 translate
-get_response
-text_to_file
-show_text
