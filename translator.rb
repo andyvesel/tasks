@@ -28,13 +28,13 @@ def get_response
 end
 
 def text_to_file
-  @f = File.open('translate.xml', 'w') { |f| f.write("#{@response.body}")}
+  @f = File.open('translate.xml', 'w') { |f| f.write("#{@response.body}") }
   @f = File.open('translate.xml').read
 end
 
 def show_text
   doc = Document.new(@f)
-  doc.elements.each("Translation/text") { ||e print e.text }
+  doc.elements.each("Translation/text") { |e| print e.text }
 end
 
 translate
