@@ -7,7 +7,7 @@ print 'Enter your text: '
 
 @word = gets.strip
 
-def language_detect
+def detect_language
   @uri = URI.parse('https://translate.yandex.net/api/v1.5/tr/detect')
   @params = { key: 'trnsl.1.1.20150602T124834Z.3912e53ab6807e56.55924160b82c19beeeea211cd149031e2e2623ef',
               text: "#{@word}", 
@@ -44,5 +44,5 @@ def show_text
   doc.elements.each('Translation/text') { |e| print 'Translation: ' + e.text }
 end
 
-language_detect
+detect_language
 translate
