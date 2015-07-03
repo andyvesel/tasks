@@ -1,7 +1,6 @@
-require 'net/http'
-require 'json'
+require 'hpricot'
+require 'open-uri'
 
-uri = URI("http://bash.im/")
+output = Hpricot(open('http://bash.im'))
 
-response = Net::HTTP.get_response(uri)
-p response.to_json
+puts output.search("//div[@class='text']").inner_html
