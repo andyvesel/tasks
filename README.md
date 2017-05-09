@@ -1,1 +1,1 @@
-Small tasks from rubymonk, dailyprogrammer, codility, etc.
+Scripts and algorithms for rubymonk, dailyprogrammer, codility, etc.
